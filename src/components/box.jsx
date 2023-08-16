@@ -11,7 +11,7 @@ function box(props) {
             <div 
                 style={styles} 
                 className='box' 
-                onClick={() => props.handleClick(props.id)}>
+                onClick={props.handleClick}>
             </div>
         </>
     )

@@ -11,14 +11,17 @@ function App() {
   const [squares,setSquares] = React.useState(boxes);
 
   function toggle(id) {
-    console.log(id)
+    setSquares(prevSquares => {
+      return prevSquares.map((square) => {
+        return square.id === id ? {...square, on: !square.on} : square
+      })
+    })
   }
   const squareElements = squares.map(square => (
     <Box 
-        key={square.id} 
-        id={square.id}
+        key={square.id}
         on={square.on} 
-        handleClick={toggle}
+        handleClick={() => toggle(square.id)}
     />
 ))
 
